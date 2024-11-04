@@ -38,9 +38,3 @@ variable "network_name" {
   description = "Network name for the backend container"
   type        = string
 }
-
-variable "depends_on" {
-  description = "Dependencies for the backend container"
-  type        = list(string)
-  default     = []
-}

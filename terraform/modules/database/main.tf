@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "~> 2.0"
+    }
+  }
+}
+
 resource "docker_volume" "pgdata" {
   name = "pgdata"
 }
@@ -15,7 +24,7 @@ resource "docker_container" "postgres" {
     container_path = "/var/lib/postgresql/data"
   }
   volumes {
-    host_path      = var.init_script_path
+    host_path      = abspath(var.init_script_path)
     container_path = "/docker-entrypoint-initdb.d/init.sql"
   }
   networks_advanced {

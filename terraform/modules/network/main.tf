@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "~> 2.0"
+    }
+  }
+}
+
 # Define rede externa (acessível a usuários)
 resource "docker_network" "external_net" {
   name   = "external-net"

@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "~> 2.0"
+    }
+  }
+}
+
 # Container do Backend
 resource "docker_container" "backend" {
   image = var.image
@@ -13,6 +22,5 @@ resource "docker_container" "backend" {
     name    = var.network_name
     aliases = ["backend"]
   }
-  depends_on = var.depends_on
   restart    = "always"
 }

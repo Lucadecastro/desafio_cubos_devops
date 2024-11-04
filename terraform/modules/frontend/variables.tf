@@ -17,9 +17,3 @@ variable "internal_network_name" {
   description = "Internal network name for the frontend container"
   type        = string
 }
-
-variable "depends_on" {
-  description = "Dependencies for the frontend container"
-  type        = list(string)
-  default     = []
-}

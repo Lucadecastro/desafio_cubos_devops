@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "~> 2.0"
+    }
+  }
+}
+
 resource "docker_container" "frontend" {
   image = var.image
   name  = var.container_name
@@ -13,6 +22,5 @@ resource "docker_container" "frontend" {
     name    = var.internal_network_name
     aliases = ["internal-frontend"]
   }
-  depends_on = var.depends_on
   restart    = "always"
 }

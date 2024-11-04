@@ -1,11 +1,12 @@
-#Node.js
-/node_modules/
-/package-lock.json
+# Node.js
+/backend/node_modules/
+/backend/package-lock.json
 
 # Terraform
-*.tfstate
-*.tfstate.*
-.terraform/
-.terraform.lock.hcl
+terraform/.terraform/
+/terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/.terraform.lock.hcl
 
+# Raíz
 .env

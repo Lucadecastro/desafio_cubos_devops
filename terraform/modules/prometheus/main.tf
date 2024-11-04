@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "~> 2.0"
+    }
+  }
+}
+
 resource "docker_container" "prometheus" {
   image = var.image
   name  = var.container_name
@@ -6,7 +15,7 @@ resource "docker_container" "prometheus" {
     external = 9090
   }
   volumes {
-    host_path      = var.config_path
+    host_path      = abspath(var.config_path)
     container_path = "/etc/prometheus/prometheus.yml"
   }
   networks_advanced {

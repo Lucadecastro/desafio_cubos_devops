@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "~> 2.0"
+    }
+  }
+}
+
 resource "docker_container" "grafana" {
   image = var.image
   name  = var.container_name
@@ -9,6 +18,5 @@ resource "docker_container" "grafana" {
     name    = var.network_name
     aliases = ["grafana"]
   }
-  depends_on = var.depends_on
   restart    = "always"
 }
