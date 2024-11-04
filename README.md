@@ -62,7 +62,7 @@ A aplicação estará disponível nos seguintes endereços:
 As ferramentas de monitoramento estão configuradas da seguinte forma:
 
     * Prometheus: Acesse em http://localhost:9090. O prometheus é configurado para coletar métricas do backend.
-    * Grafana: Acesse em http://localhost:300. Utilize as seguintes credenciais padrão para login:
+    * Grafana: Acesse em http://localhost:3000. Utilize as seguintes credenciais padrão para login:
         * Usuário: `admin`
         * Senha: `admin`
 
@@ -81,3 +81,11 @@ Os contêineres estão configurados com `restart: always`, garantindo que sejam 
         * Em Data sources, certifique-se de incluir em "cConnection" a URL `http://prometheus:9090`
         * Não é necessário criar autenticação ou configurações avançadas, desça até o botão `Save & Test`e pode salvar.
         * Você será informado que agora pode visualizar os dados criando um dashboard ou consultando dados no Explore view!
+
+### 10. Importando um Dashboard no Grafana
+Para facilitar a visualização das métricas coletadas pelo Prometheus, você pode importar um Dashboard pronto no Grafana.
+
+    * No Grafana, no canto superior direito, clique no ícone `+` e selecione "Import dashboard"
+    * Insira a URL ou o ID de um dashboard da comunidade.
+    * Clique em "Load" e aguarde a importação.
+    * Selecione a fonte de dados configurada (neste caso, Prometheus) e clique em "Import"
