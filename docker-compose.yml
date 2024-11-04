@@ -1,0 +1,12 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    image: desafio-tecnico-backend:latest
+
+  frontend:
+    build:
+      context: ./frontend
+    image: desafio-tecnico-frontend:latest
+    depends_on:
+      - backend
